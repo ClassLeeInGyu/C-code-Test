@@ -1,0 +1,125 @@
+#include <stdio.h>
+#include <Windows.h>
+#include <string.h>
+
+// typedef struct user
+// {
+//     char goods_name[20];
+//     int many;
+//     char many_back[10];
+//     int year;
+//     int month;
+//     int day;
+//     int barcode;
+// }user;
+
+void NewGoods()
+{  
+    char goods_name[20];
+    int many;
+    char many_back[10];
+    int year;
+    int month;
+    int day;
+    int barcode;
+
+    FILE * goods_nameF;
+    FILE * manyF;
+    FILE * many_backF;
+    FILE * yearF;
+    FILE * monthF;
+    FILE * dayF;
+    FILE * barcodeF;
+
+
+    printf("제품명: ");
+    scanf("%s", &goods_name);
+    printf("수량: ");
+    scanf("%d", &many);
+    printf("단위: ");
+    scanf("%s", &many_back);
+    printf("유통기한 [년] [월] [일]: ");
+    scanf("%d %d %d", &year, &month, &day);
+    printf("바코드: ");
+    scanf("%d",&barcode);
+    
+    goods_nameF = fopen("goods.txt","w");
+    fprintf(goods_nameF, "%s", goods_name);
+    fclose(goods_nameF);
+ 
+    manyF = fopen("many.txt","w");
+    fprintf(manyF, "%d", many);
+    fclose(manyF);
+
+    many_backF = fopen("many_back.txt","w");
+    fprintf(many_backF, "%s", many_back);
+    fclose(many_backF);
+     
+    yearF = fopen("year.txt","w");
+    fprintf(yearF, "%d", year);
+    fclose(yearF);
+     
+    monthF = fopen("month.txt","w");
+    fprintf(monthF, "%d", month);
+    fclose(monthF);
+     
+    dayF = fopen("day.txt","w");
+    fprintf(dayF, "%d", day);
+    fclose(dayF);
+     
+    barcodeF = fopen("바코드.txt","w");
+    fprintf(barcodeF, "%d", barcode);
+    fclose(barcodeF);
+
+    printf("입력완료!\n");
+}
+
+int main(void)
+{
+    FILE * goods_nameF;
+    FILE * manyF;
+    FILE * many_backF;
+    FILE * yearF;
+    FILE * monthF;
+    FILE * dayF;
+    FILE * barcodeF;
+    int call;
+    int a;
+    int b;
+    int c;
+    int d;
+    int e;
+    int f;
+    int g;
+
+    printf("1 : 제품정보입력\n");
+    printf("무엇: ");
+    scanf("%d", &call);
+
+    switch (call)
+    {
+        case 1:
+        NewGoods();
+    }
+    goods_nameF = fopen("goods.txt","rt");
+    manyF = fopen("many.txt","rt");
+    many_backF = fopen("many_back.txt","rt");
+    yearF = fopen("year.txt","rt");
+    monthF = fopen("month.txt","rt");
+    dayF = fopen("day.txt","rt");
+    barcodeF = fopen("바코드.txt","rt");
+    
+    fclose(goods_nameF);
+    fclose(many_backF);
+    fclose(yearF);
+    fclose(monthF);
+    fclose(manyF);
+    fclose(dayF);
+    fclose(barcodeF);
+
+    printf("제품명            수량/단위            유통기한                 바코드\n");
+    printf("%10s %2d %s %4d %2d %2d %15d",
+    a,b,c,d,e,f,g);
+
+    return 0;
+}
