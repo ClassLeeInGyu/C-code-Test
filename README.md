@@ -1,2 +1,1 @@
-# C-code-Test
-Spinner
+클러스터 준비중
